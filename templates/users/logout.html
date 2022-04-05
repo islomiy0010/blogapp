@@ -1,0 +1,18 @@
+{% extends 'parent/base.html' %}
+{% load  crispy_forms_tags %}
+{% block  mycontent %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 offset-md-6 mt-5">
+            <div class="card shadow p-3">
+                <h1>LogOut</h1>
+                <hr>
+                <div class="alert alert-info">
+                    <h4>Logged Out...</h4>
+                </div>
+                <a class="btn btn-info mt-2" href="{% url 'users-login' %}">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

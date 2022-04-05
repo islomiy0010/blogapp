@@ -1,0 +1,5 @@
+1.Django-admin startproject blog - proekt yaratamiz
+2.python manage.py startapp post - proekt ichida app yaratamiz
+3.python manage.py runserver - proektni ishga tushiramiz
+4.appni proektga ulash
+5.PostModel - Model yaratish

@@ -1,0 +1,49 @@
+{% extends 'parent/base.html' %}
+{% load  crispy_forms_tags %}
+{% block  mycontent %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-3">
+            <div class="card shadow my-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/media/{{post.img}}" alt="{{post.id}}" class="img-fluid">
+                    </div>
+                    <div class="col-md-8 p-2">
+                        <small>{{post.created_at}}</small>
+                        {% if post.author == request.user %}
+                        <div class="float-end me-2">
+                            <small><a href="{% url 'post-edit-page' post.id %}" class="btn btn-warning btn-sm">Edit</a></small>
+                            <small><a href="{% url 'post-delete-page' post.id %}" class="btn btn-danger btn-sm ">Delete</a></small>
+                        </div>
+                        {% endif %}
+                        <hr>
+                        <h6>{{post.title}}</h6>
+                        <p style="text-align:justify;" class="p-2">{{post.content}}</p>
+                    </div>
+                </div>
+                <div class="accordion p-2" id="accordionPanelsStayOpenExample">
+                      <a class="text-decoration-none h4" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Comments: {{post.comment_count}}
+                      </a>
+                  <div class="accordion-item">
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                      <div class="accordion-body" style="height:250px; overflow-y:scroll;text-align:'justify'">
+                        {% for comment in post.comment_set.all %}
+                          <p>{{comment.content}}</p>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{c_form|crispy}}
+                        <input type="submit" class="btn btn-success mt-2"
+                               value="Add Comment">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

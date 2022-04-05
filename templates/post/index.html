@@ -1,0 +1,37 @@
+{% extends 'parent/base.html' %}
+{% load  crispy_forms_tags %}
+{% block  mycontent %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h1>Form</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{forms|crispy}}
+                    <input type="submit"
+                       class="btn btn-primary mt-2"
+                       value="Create Post">
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            {% for post in data%}
+            <div class="card shadow my-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/media/{{post.img}}" alt="{{post.id}}" class="img-fluid">
+                    </div>
+                    <div class="col-md-8">
+                        <h6 class="text-end">{{post.created_at}}</h6>
+                        <hr>
+                        <a class="h6" href="{% url 'post-detail-page' post.id %}">{{post.title}}</a>
+                        <p style="text-align:justify;" class="p-2">{{post.content|truncatechars:200}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

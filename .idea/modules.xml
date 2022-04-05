@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../jsOctober/16-lesson/.idea/16-lesson.iml" filepath="$PROJECT_DIR$/../../jsOctober/16-lesson/.idea/16-lesson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../jsOctober/19-lesson/.idea/19-lesson.iml" filepath="$PROJECT_DIR$/../../jsOctober/19-lesson/.idea/19-lesson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/blog.iml" filepath="$PROJECT_DIR$/.idea/blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../jsFebruray/extra/.idea/extra.iml" filepath="$PROJECT_DIR$/../../jsFebruray/extra/.idea/extra.iml" />
+    </modules>
+  </component>
+</project>
